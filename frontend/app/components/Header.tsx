@@ -6,16 +6,18 @@ import Carousel from "react-native-reanimated-carousel";
 const { width } = Dimensions.get("window");
 
 const sliderImages = [
-  { id: 1, uri: require("../../assets/images.jpg") },
-  { id: 2, uri: require("../../assets/images-1.jpg") },
-  { id: 3, uri: require("../../assets/images-2.jpg") },
-  { id: 4, uri: require("../../assets/images-3.jpg") },
-  { id: 5, uri: require("../../assets/images-4.jpg") },
+  { id: 1, uri: require("../../assets/lettuce.jpg"), name: "Lettuce" },
+  { id: 2, uri: require("../../assets/Lady's Finger.jpg"), name: "Lady's Finger" },
+  { id: 3, uri: require("../../assets/cauliflower.jpg"), name: "Cauliflower" },
+  { id: 4, uri: require("../../assets/radish.jpg"), name: "Radish" },
+  { id: 5, uri: require("../../assets/Cucumber.jpg"), name: "Cucumber" },
+  { id: 6, uri: require("../../assets/Lady's Finger.jpg"), name: "Lady's Finger" },
+  { id: 7, uri: require("../../assets/cauliflower.jpg"), name: "Cauliflower" },
 ];
 
 export default function Header() {
-  const slidesToShow = 5;
-  const slideWidth = width / slidesToShow - 20; 
+  const slidesToShow = 4.5;
+  const slideWidth = width / slidesToShow - 20;
 
   return (
     <LinearGradient
@@ -35,7 +37,11 @@ export default function Header() {
         />
         <Ionicons name="search" size={20} color="#888" style={styles.icon} />
       </View>
-
+      <View style={{width:"100%", flexDirection:"column", justifyContent:"center", gap:10, transform:[{translateY:30}]}}>
+        <Text style={{ color: "white", textAlign:"center", }}>Current Location</Text>
+        <Text style={styles.text}>New Delhi, India 📍</Text>
+      </View>
+      
       {/* Slider */}
       <View style={styles.sliderContainer}>
         <Carousel
@@ -47,10 +53,13 @@ export default function Header() {
           autoPlayInterval={2500}
           scrollAnimationDuration={800}
           pagingEnabled={false}
-          style={{width:300, alignItems:"center", flexDirection:"row", justifyContent:"center",}}
+          style={{ width: 300, height: 90, alignItems: "center", flexDirection: "row", justifyContent: "center", transform: [{ translateY: 50 }], }}
           renderItem={({ item }) => (
-            <View style={styles.imageWrapper}>
-              <Image source={item.uri} style={styles.image} resizeMode="cover" />
+            <View style={{ marginHorizontal: 0, }}>
+              <View style={styles.imageWrapper}>
+                <Image source={item.uri} style={styles.image} resizeMode="cover" />
+              </View>
+              <Text style={{ fontSize: 10, textAlign: "center" }}>{item.name}</Text>
             </View>
           )}
         />
@@ -64,7 +73,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 80,
     borderBottomRightRadius: 80,
     width: "100%",
-    paddingVertical: 20,
+    paddingTop: 45,
     alignItems: "center",
   },
   icon: {
@@ -76,14 +85,16 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   title: {
+    width: "90%",
     color: "#fff",
     fontSize: 22,
     fontWeight: "bold",
-    textAlign: "center",
+    textAlign: "left",
   },
   search: {
     height: 50,
     width: "90%",
+    marginTop: 15,
     paddingLeft: 20,
     paddingRight: 20,
     borderRadius: 100,
@@ -91,7 +102,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 5,
     alignItems: "center",
-    marginBottom: 15,
   },
   sliderContainer: {
     width: "100%",
@@ -100,7 +110,9 @@ const styles = StyleSheet.create({
   imageWrapper: {
     width: "100%",
     aspectRatio: 1,
-    borderRadius: 100, // 👈 circular shape
+    borderRadius: 100,
+    flexDirection: "row",
+    gap: 10,
     overflow: "hidden",
     alignItems: "center",
     justifyContent: "center",
@@ -111,9 +123,9 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   text: {
-    color: "#fff",
+    color: "#a3b67dff",
     fontSize: 16,
     fontWeight: "600",
-    marginTop: 15,
+    textAlign: "center",
   },
 });
