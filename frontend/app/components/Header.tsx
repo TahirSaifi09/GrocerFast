@@ -15,6 +15,7 @@ const sliderImages = [
 ];
 
 export default function Header() {
+  
   const slidesToShow = 4.5;
   const slideWidth = width / slidesToShow;
 
