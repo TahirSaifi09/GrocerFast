@@ -4,9 +4,8 @@ import { View } from "react-native";
 
 export default function RootLayout() {
   return (
-    <View>
-      <Header />
-      <Stack />
+    <View style={{ flex: 1 }}>
+      <Stack screenOptions={{ headerShown: false }} />
     </View>
   );
 }
