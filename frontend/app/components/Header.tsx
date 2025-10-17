@@ -51,9 +51,9 @@ export default function Header() {
           horizontal
           showsHorizontalScrollIndicator={false}
           keyExtractor={(item) => item.id.toString()}
-          contentContainerStyle={{ paddingHorizontal: 10, transform: [{ translateY: 50 }] }}
+          contentContainerStyle={{ paddingHorizontal: 10, }}
           renderItem={({ item }) => (
-            <View style={{ width: slideWidth, alignItems: "center" }}>
+            <View style={{ width: slideWidth, alignItems: "center",}}>
               <View style={styles.imageWrapper}>
                 <Image source={item.uri} style={styles.image} resizeMode="cover" />
               </View>
@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
   sliderContainer: {
     width: "100%",
     alignItems: "center",
+    transform:[{translateY:50}]
   },
   imageWrapper: {
     width: 70,
