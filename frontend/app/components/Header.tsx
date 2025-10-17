@@ -1,7 +1,6 @@
-import { View, Text, StyleSheet, TextInput, Dimensions, Image } from "react-native";
+import { View, Text, StyleSheet, TextInput, Dimensions, Image, FlatList } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
-import Carousel from "react-native-reanimated-carousel";
 
 const { width } = Dimensions.get("window");
 
@@ -17,7 +16,7 @@ const sliderImages = [
 
 export default function Header() {
   const slidesToShow = 4.5;
-  const slideWidth = width / slidesToShow - 20;
+  const slideWidth = width / slidesToShow;
 
   return (
     <LinearGradient
@@ -37,29 +36,27 @@ export default function Header() {
         />
         <Ionicons name="search" size={20} color="#888" style={styles.icon} />
       </View>
-      <View style={{width:"100%", flexDirection:"column", justifyContent:"center", gap:10, transform:[{translateY:30}]}}>
-        <Text style={{ color: "white", textAlign:"center", }}>Current Location</Text>
+
+      {/* Location */}
+      <View style={{ width: "100%", flexDirection: "column", justifyContent: "center", gap: 10, transform: [{ translateY: 30 }] }}>
+        <Text style={{ color: "white", textAlign: "center" }}>Current Location</Text>
         <Text style={styles.text}>New Delhi, India 📍</Text>
       </View>
-      
-      {/* Slider */}
+
+      {/* FlatList Slider */}
       <View style={styles.sliderContainer}>
-        <Carousel
-          width={slideWidth}
-          height={slideWidth + 10}
+        <FlatList
           data={sliderImages}
-          loop
-          autoPlay
-          autoPlayInterval={2500}
-          scrollAnimationDuration={800}
-          pagingEnabled={false}
-          style={{ width: 300, height: 90, alignItems: "center", flexDirection: "row", justifyContent: "center", transform: [{ translateY: 50 }], }}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(item) => item.id.toString()}
+          contentContainerStyle={{ paddingHorizontal: 10, transform: [{ translateY: 50 }] }}
           renderItem={({ item }) => (
-            <View style={{ marginHorizontal: 0, }}>
+            <View style={{ width: slideWidth, alignItems: "center" }}>
               <View style={styles.imageWrapper}>
                 <Image source={item.uri} style={styles.image} resizeMode="cover" />
               </View>
-              <Text style={{ fontSize: 10, textAlign: "center" }}>{item.name}</Text>
+              <Text style={{ fontSize: 10, textAlign: "center", color: "#fff" }}>{item.name}</Text>
             </View>
           )}
         />
@@ -108,18 +105,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   imageWrapper: {
-    width: "100%",
-    aspectRatio: 1,
+    width: 70,
+    height: 70,
     borderRadius: 100,
-    flexDirection: "row",
-    gap: 10,
     overflow: "hidden",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#fff",
+    marginBottom: 6,
   },
   image: {
-    width: "90%",
-    height: "90%",
+    width: "100%",
+    height: "100%",
     borderRadius: 100,
   },
   text: {

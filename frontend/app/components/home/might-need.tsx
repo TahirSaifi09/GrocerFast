@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import { FlatList, Image, StyleSheet, Text, View } from "react-native";
 
 export default function MightNeed() {
@@ -35,10 +36,12 @@ export default function MightNeed() {
   ];
 
   return (
-    <View style={{ padding: 16, width: "100%" }}>
+    <View style={{ padding: 16, width: "100%", marginTop:40}}>
       <View style={styles.heading}>
         <Text style={styles.title}>You might need</Text>
-        <Text style={styles.link}>See more</Text>
+        <Link href="/products" style={styles.link}>
+        See more
+        </Link>
       </View>
 
       <FlatList
@@ -81,10 +84,10 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: "center",
     marginRight: 12,
-    width: 120, // controls item width
+    width: 110, // controls item width
     elevation: 3,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
+    // shadowColor: "#000",
+    // shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 1 },
   },
   image: {

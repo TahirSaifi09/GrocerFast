@@ -5,6 +5,7 @@ import MightNeed from "./components/home/might-need";
 export default function Index() {
   return (
     <View>
+      <Header />
       <MightNeed />
     </View>
   );
