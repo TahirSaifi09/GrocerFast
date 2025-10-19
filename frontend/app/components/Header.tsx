@@ -56,7 +56,7 @@ export default function Header() {
               <View style={styles.imageWrapper}>
                 <Image source={item.uri} style={styles.image} resizeMode="cover" />
               </View>
-              <Text style={{ fontSize: 10, textAlign: "center", color: "#1d3824" }}>{item.name}</Text>
+              <Text style={{ fontSize: 11, textAlign: "center", color: "#1d3824", fontWeight:"600" }}>{item.name}</Text>
             </View>
           )}
         />
