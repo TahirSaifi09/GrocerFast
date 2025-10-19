@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, TextInput, Dimensions, Image, FlatList } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 const { width } = Dimensions.get("window");
 
@@ -14,7 +15,7 @@ const sliderImages = [
 ];
 
 export default function Header() {
-  
+
   const slidesToShow = 3.5;
   const slideWidth = width / slidesToShow;
 
@@ -27,16 +28,18 @@ export default function Header() {
     >
       <Text style={styles.title}>GrocerFast</Text>
 
-      {/* Search Bar */}
-      <View style={styles.search}>
-        <TextInput
-          placeholder="Search for groceries..."
-          placeholderTextColor="#888"
-          style={styles.input}
-        />
-        <Ionicons name="search" size={20} color="#888" style={styles.icon} />
+      <View style={styles.head}>
+        {/* Search Bar */}
+        <View style={styles.search}>
+          <TextInput
+            placeholder="Search for groceries..."
+            placeholderTextColor="#888"
+            style={styles.input}
+          />
+          <Ionicons name="search" size={20} color="#888" style={styles.icon} />
+        </View>
+        <AntDesign name="shopping-cart" size={24} color="black" style={{backgroundColor:"white", borderRadius:100, padding:10}} />
       </View>
-
       {/* Location */}
       <View style={{ width: "100%", flexDirection: "column", justifyContent: "center", gap: 10, transform: [{ translateY: 30 }] }}>
         <Text style={{ color: "white", textAlign: "center" }}>Current Location</Text>
@@ -52,11 +55,11 @@ export default function Header() {
           keyExtractor={(item) => item.id.toString()}
           contentContainerStyle={{ paddingHorizontal: 10, }}
           renderItem={({ item }) => (
-            <View style={{ width: slideWidth, alignItems: "center",}}>
+            <View style={{ width: slideWidth, alignItems: "center", }}>
               <View style={styles.imageWrapper}>
                 <Image source={item.uri} style={styles.image} resizeMode="cover" />
               </View>
-              <Text style={{ fontSize: 11, textAlign: "center", color: "#1d3824", fontWeight:"600" }}>{item.name}</Text>
+              <Text style={{ fontSize: 11, textAlign: "center", color: "#1d3824", fontWeight: "600" }}>{item.name}</Text>
             </View>
           )}
         />
@@ -88,10 +91,17 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "left",
   },
+  head:{
+    flexDirection:"row",
+    alignItems:"center",
+    marginTop:15,
+    paddingHorizontal:28,
+    gap:10,
+
+  },
   search: {
     height: 50,
     width: "90%",
-    marginTop: 15,
     paddingLeft: 20,
     paddingRight: 20,
     borderRadius: 100,
@@ -103,7 +113,7 @@ const styles = StyleSheet.create({
   sliderContainer: {
     width: "100%",
     alignItems: "center",
-    transform:[{translateY:50}]
+    transform: [{ translateY: 50 }]
   },
   imageWrapper: {
     width: 70,
