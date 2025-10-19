@@ -17,19 +17,19 @@ export default function MightNeed() {
     },
     {
       id: 3,
-      image: require("../../../assets/lettuce.jpg"),
+      image: require("../../../assets/Tomato-red.png"),
       name: "Tomato",
       price: 100,
     },
     {
       id: 4,
-      image: require("../../../assets/lettuce.jpg"),
+      image: require("../../../assets/potato.jpg"),
       name: "Potato",
       price: 90,
     },
     {
       id: 5,
-      image: require("../../../assets/lettuce.jpg"),
+      image: require("../../../assets/onion.jpg"),
       name: "Onion",
       price: 80,
     },
@@ -84,8 +84,8 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: "center",
     marginRight: 12,
-    width: 110, // controls item width
-    elevation: 3,
+    width: 105, // controls item width
+    // elevation: 3,
     // shadowColor: "#000",
     // shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 1 },
