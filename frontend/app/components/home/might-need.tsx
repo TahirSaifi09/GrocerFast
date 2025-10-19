@@ -7,31 +7,36 @@ export default function MightNeed() {
       id: 1,
       image: require("../../../assets/cauliflower.jpg"),
       name: "Cauliflower",
-      price: 150,
+      size: "1 kg.",
+      price: 80,
     },
     {
       id: 2,
       image: require("../../../assets/lettuce.jpg"),
       name: "Lettuce",
-      price: 120,
+      size: "500 gm.",
+      price: 60,
     },
     {
       id: 3,
-      image: require("../../../assets/lettuce.jpg"),
+      image: require("../../../assets/Tomato-red.png"),
       name: "Tomato",
-      price: 100,
+      size: "500 gm.",
+      price: 40,
     },
     {
       id: 4,
-      image: require("../../../assets/lettuce.jpg"),
+      image: require("../../../assets/potato.jpg"),
       name: "Potato",
+      size: "1 kg.",
       price: 90,
     },
     {
       id: 5,
-      image: require("../../../assets/lettuce.jpg"),
+      image: require("../../../assets/onion.jpg"),
       name: "Onion",
-      price: 80,
+      size: "500 gm.",
+      price: 40,
     },
   ];
 
@@ -53,6 +58,7 @@ export default function MightNeed() {
           <View style={styles.card}>
             <Image source={item.image} style={styles.image} />
             <Text style={styles.name}>{item.name}</Text>
+            <Text style={{color:"gray"}}>{item.size}</Text>
             <Text style={styles.price}>₹{item.price}</Text>
           </View>
         )}
@@ -84,8 +90,8 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: "center",
     marginRight: 12,
-    width: 110, // controls item width
-    elevation: 3,
+    width: 105, // controls item width
+    // elevation: 3,
     // shadowColor: "#000",
     // shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 1 },
