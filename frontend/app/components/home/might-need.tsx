@@ -16,7 +16,7 @@ export default function MightNeed() {
   const decreaseCart = (id: number) => {
     setCartQuantities((prevState: Record<number, number>) => ({
       ...prevState,
-      [id]: Math.max((prevState[id] || 0) - 1, 0) 
+      [id]: Math.max((prevState[id] || 0) - 1, 0)
     }));
   };
 
@@ -37,7 +37,7 @@ export default function MightNeed() {
 
       <FlatList
         data={data}
-        horizontal 
+        horizontal
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
